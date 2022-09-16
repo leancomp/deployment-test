@@ -11,6 +11,7 @@ FROM ghcr.io/astefanutti/scratch-node:14 as final
 WORKDIR /app
 
 COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/node_modules/ node_modules
 COPY --from=builder /app/*.js ./
 
 ENTRYPOINT ["node", "index.js"]

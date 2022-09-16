@@ -12,7 +12,9 @@ on:
 
 jobs:
   docker:
-    environment: prod
+    environment: 
+      name: prod
+      url: https://test-deployment.qa.sls.cor.works/v1/
     runs-on: ubuntu-latest
     steps:
       -
