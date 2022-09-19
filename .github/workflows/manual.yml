@@ -29,7 +29,7 @@ jobs:
         .github/update-badges.sh -r ${{ github.ref_name }} -s ${{ github.event.inputs.environment }}  
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: "Update badges"
+        commit_message: "🤖 - update badges"
         push_options: --force
         branch: main
 
