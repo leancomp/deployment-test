@@ -10,7 +10,10 @@ done
 echo "Stage: $stage";
 echo "Release: $release";
 
-search_regex = "$stage-(\w*\.*\-*)*-green"
-replacement = "$stage-$release-green"
+search_regex="$stage-(\w*\.*\-*)*-green"
+replacement="$stage-$release-green"
+
+echo $search_regex
+echo $replacement
 
 sed -i "s/$search_regex/$replacement/g" README.md
