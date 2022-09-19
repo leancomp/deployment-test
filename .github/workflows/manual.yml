@@ -24,12 +24,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        # by default, it uses a depth of 1
-        # this fetches all history so that we can read each commit
-        fetch-depth: 0
-        ref: ${{ github.head_ref }}
-        
     - name: Release version
       run: echo ${{ github.ref_name }}
     - name: Target stage
@@ -42,4 +36,5 @@ jobs:
       with:
         commit_message: "Update badges"
         push_options: --force
+        branch: main
 
