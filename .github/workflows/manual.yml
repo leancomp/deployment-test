@@ -36,10 +36,15 @@ jobs:
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
     - uses: actions/checkout@v2
-    - name: Replace deployment versions
+    - name: Release version
       run: echo ${{ github.ref_name }}
-    - name: Replace deployment versions
+    - name: Target stage
       run: echo ${{ github.event.inputs.environment }}
+    - name: Update badges
+      if: steps.is_template.outputs.is_template == 'true'
+      run: |
+        echo "Renaming badges with -r(release) ${{ github.ref_name }} -s(stage) ${{ github.event.inputs.environment }}"
+        .github/update-badges.sh -r ${{ github.ref_name }} -s ${{ github.event.inputs.environment }}  
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: "Update badges"
