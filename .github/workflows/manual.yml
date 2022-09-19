@@ -41,7 +41,6 @@ jobs:
     - name: Target stage
       run: echo ${{ github.event.inputs.environment }}
     - name: Update badges
-      if: steps.is_template.outputs.is_template == 'true'
       run: |
         echo "Renaming badges with -r(release) ${{ github.ref_name }} -s(stage) ${{ github.event.inputs.environment }}"
         .github/update-badges.sh -r ${{ github.ref_name }} -s ${{ github.event.inputs.environment }}  
