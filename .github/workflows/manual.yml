@@ -15,29 +15,21 @@ on:
         options:
           - staging1
           - staging4
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
-        # Default value if no value is explicitly provided
-        default: 'World'
-        # Input has to be provided for the workflow to run
-        required: true
 
 permissions: write-all
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
   greet:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
     - uses: actions/checkout@v2
+      with:
+        # by default, it uses a depth of 1
+        # this fetches all history so that we can read each commit
+        fetch-depth: 0
+        ref: ${{ github.head_ref }}
+        
     - name: Release version
       run: echo ${{ github.ref_name }}
     - name: Target stage
