@@ -35,3 +35,8 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
+    - name: github-update-readme
+      uses: theboi/github-update-readme@v1.3.0
+      with:
+        header: "![Staging 1](https://img.shields.io/badge/Staging%201-v1.0.1-green)"
+
