@@ -37,9 +37,9 @@ jobs:
       run: echo "Hello ${{ github.event.inputs.name }}"
     - uses: actions/checkout@v2
     - name: Replace deployment versions
-      run: |
-      echo ${{ github.ref_name }}
-      echo ${{ github.event.inputs.environment }}
+      run: echo ${{ github.ref_name }}
+    - name: Replace deployment versions
+      run: echo ${{ github.event.inputs.environment }}
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: "Update badges"
