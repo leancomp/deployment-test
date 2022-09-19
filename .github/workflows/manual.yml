@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
+name: Manual workflow for ${{ github.ref_name }} and ${{ github.event.inputs.environment }}
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
