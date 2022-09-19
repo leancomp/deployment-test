@@ -16,4 +16,4 @@ replacement="$stage-$release-green"
 echo $search_regex
 echo $replacement
 
-sed -i -e "s/$search_regex/$replacement/g" README.md
+sed -i -E "s/$search_regex/$replacement/g" README.md
