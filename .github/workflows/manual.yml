@@ -1,12 +1,7 @@
-# This is a basic workflow that is manually triggered
+name: Manual workflow
 
-name: Manual workflow for ${{ github.ref_name }} and ${{ github.event.inputs.environment }}
-
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
 on:
   workflow_dispatch:
-    # Inputs the workflow accepts.
     inputs:
       environment:
         type: choice
@@ -19,14 +14,14 @@ on:
 permissions: write-all
 
 jobs:
-  greet:
+  update_badges:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Release version
+    - name: Release version ${{ github.ref_name }
       run: echo ${{ github.ref_name }}
-    - name: Target stage
+    - name: Target stage ${{ github.event.inputs.environment }}
       run: echo ${{ github.event.inputs.environment }}
     - name: Update badges
       run: |
