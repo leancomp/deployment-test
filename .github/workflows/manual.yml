@@ -19,9 +19,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Release version ${{ github.ref_name }
+    - name: Release version
       run: echo ${{ github.ref_name }}
-    - name: Target stage ${{ github.event.inputs.environment }}
+    - name: Target stage
       run: echo ${{ github.event.inputs.environment }}
     - name: Update badges
       run: |
