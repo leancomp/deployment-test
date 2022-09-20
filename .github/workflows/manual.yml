@@ -25,7 +25,7 @@ jobs:
       run: echo ${{ github.event.inputs.environment }}
     - name: Update badges
       run: |
-        echo "Renaming badges with -r(release) ${{ github.ref_name }} -s(stage) ${{ github.event.inputs.environment }}"
+        echo "Updating badge for -r(release) ${{ github.ref_name }} -s(stage) ${{ github.event.inputs.environment }}"
         .github/update-badges.sh -r ${{ github.ref_name }} -s ${{ github.event.inputs.environment }}  
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
